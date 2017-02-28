@@ -6,14 +6,14 @@ var strC = ip;
 var strD = '';
 
 var regTA = /\,/g;
-var regTB = /[^[0-9]{1,}/;
+var regTB = /[^0-9\.]{1,}/;
 var regTE = /\(.{1,50}\)/;
 var regTF = /[^\(].{1,}[^\)]/;
 
 var res = regTA.exec(strA).index;
 
 strD = strC.match(regTB);
-strC = strC.replace(strD[0],"");
+if(!strD === null) strC = strC.replace(strD[0],"");
 strB = strB.match(regTE);
 strB = strB[0].match(regTF);
 strA = strA.substring(0,res);
