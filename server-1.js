@@ -10,7 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/:details', function(req, res) {
 	console.log('User-Agent: ' + req.ips);
-	var result = headerValues(req.headers, req.ip);
+	var ip = req.headers['x-forwarded-for'] || req.ip;
+	var result = headerValues(req.headers, ip);
 		
 	res.send(result);
 });
