@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/:details', function(req, res) {
 	console.log('User-Agent: ' + req.ip);
-	var result = headerValues(req.headers);
-		result.ipaddress = req.ip;
+	var result = headerValues(req.headers, req.ip);
+		
 	res.send(result);
 });
 
