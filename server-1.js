@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/:details', function(req, res) {
-	console.log('User-Agent: ' + req.ip);
+	console.log('User-Agent: ' + req.ips);
 	var result = headerValues(req.headers, req.ip);
 		
 	res.send(result);
