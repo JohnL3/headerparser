@@ -12,7 +12,8 @@ app.get('/:details', function(req, res) {
 	console.log('User-Agent: ' + req.ips);
 	var ip = req.headers['x-forwarded-for'] || req.ip;
 	var result = headerValues(req.headers, ip);
-		
+	var ips = ip;
+	result.ipS = ips;
 	res.send(result);
 });
 
